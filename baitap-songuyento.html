@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<p>Hiển thị số nguyên tố </p>
+<input type="text" placeholder="Nhập 1 số bất kỳ" id="number">
+<input type="button" value="Check Prime" onclick="disPlay();">
+<p id="result"></p>
+<script>
+     let isPrime = function(n) {
+        let testPrime = true;
+        if (n < 2) {
+            testPrime = false;
+        } else {
+            for (let i = 2; i < n - 1; i++) {
+                if (n % i == 0) {
+                    testPrime = false;
+                    break;
+                }
+            } return testPrime;
+        }
+    }
+
+    function disPlay(){
+         let text = "";
+         let count = 0;
+         let number = parseInt(document.getElementById('number').value);
+            for ( i = 0; i<500;i++){
+            if(isPrime(i)) {
+                text += i + " ";
+                count++;
+            } if (count == number){
+                break;
+            }
+        }
+            document.getElementById('result').innerHTML = text;
+    }
+</script>
+</body>
+
+</html>
